@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PT Bintang Bali Bina Persada</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="preload" as="image" href="assets/danauberatan.png">
 
     <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -86,37 +88,25 @@
             height: 76px;
         }
 
-        /* Logo Area (Dikosongkan sesuai permintaan) */
+        /* Logo Area */
         .navbar-brand {
             display: flex;
             align-items: center;
             text-decoration: none;
         }
 
-        .logo-placeholder {
-            width: 140px;
-            height: 48px;
-            border: 1.5px dashed #cbd5e1;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #94a3b8;
-            font-size: 0.75rem;
-            font-weight: 500;
-            background-color: #f8fafc;
+        .brand-logo {
+            height: 52px;
+            width: auto;
+            max-height: 52px;
+            object-fit: contain;
+            display: block;
             transition: var(--transition-smooth);
         }
 
-        .logo-placeholder:hover {
-            border-color: #94a3b8;
-        }
-
-        /* Jika gambar logo sudah ada, hapus border dan pasang <img> di dalam sini */
-        .logo-placeholder img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+        .navbar-brand:hover .brand-logo {
+            opacity: 0.92;
+            transform: scale(1.02);
         }
 
         /* Menu Navigasi Tengah */
@@ -249,11 +239,11 @@
             background:
                 /* Gradient Overlay untuk keterbacaan teks maksimal */
                 linear-gradient(to right,
-                    rgba(15, 30, 42, 0.75) 0%,
-                    rgba(15, 30, 42, 0.5) 45%,
-                    rgba(15, 30, 42, 0.15) 100%),
+                    rgba(15, 30, 42, 0.78) 0%,
+                    rgba(15, 30, 42, 0.52) 48%,
+                    rgba(15, 30, 42, 0.18) 100%),
                 /* Foto Pura Ulun Danu Beratan, Danau Beratan Bali */
-                url('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+                url('assets/danauberatan.png') center/cover no-repeat;
             color: var(--color-white);
             padding: 4.5rem 0;
             overflow: hidden;
@@ -325,6 +315,236 @@
             transform: translateX(4px);
         }
 
+        /* ==========================================================================
+       Tentang Kami Section
+       ========================================================================== */
+        .about-section {
+            padding: 6.5rem 0;
+            background-color: var(--color-white);
+            position: relative;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            align-items: center;
+            gap: 4.5rem;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .about-tagline {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #d48b16;
+            margin-bottom: 0.85rem;
+        }
+
+        .about-title {
+            font-size: clamp(2.1rem, 3.8vw, 2.85rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+            color: var(--color-primary);
+            margin-bottom: 1.35rem;
+        }
+
+        .about-description {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: #4b5563;
+            margin-bottom: 2.25rem;
+            max-width: 520px;
+        }
+
+        .btn-about {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 0.85rem 1.85rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(21, 55, 74, 0.2);
+            transition: var(--transition-smooth);
+        }
+
+        .btn-about svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.25s ease;
+        }
+
+        .btn-about:hover {
+            background-color: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(21, 55, 74, 0.3);
+        }
+
+        .btn-about:hover svg {
+            transform: translateX(4px);
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 16px 36px -8px rgba(15, 30, 42, 0.12), 0 0 1px 1px rgba(0, 0, 0, 0.04);
+            background-color: #f1f5f9;
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .about-image-wrapper:hover .about-image {
+            transform: scale(1.03);
+        }
+
+        /* ==========================================================================
+       Unit Usaha Section
+       ========================================================================== */
+        .units-section {
+            padding: 6.5rem 0;
+            background-color: #f8fafc;
+        }
+
+        .units-header {
+            margin-bottom: 3.5rem;
+        }
+
+        .units-tagline {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #d48b16;
+            margin-bottom: 0.85rem;
+        }
+
+        .units-title {
+            font-size: clamp(2.1rem, 3.8vw, 2.75rem);
+            font-weight: 800;
+            line-height: 1.25;
+            letter-spacing: -0.025em;
+            color: var(--color-primary);
+        }
+
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.25rem;
+        }
+
+        .unit-card {
+            background-color: var(--color-white);
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition-smooth);
+            position: relative;
+            box-shadow: 0 4px 12px rgba(15, 30, 42, 0.03);
+        }
+
+        .unit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(15, 30, 42, 0.08);
+            border-color: #cbd5e1;
+        }
+
+        .unit-card-media {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            border-top-left-radius: 19px;
+            border-top-right-radius: 19px;
+            background-color: #f1f5f9;
+        }
+
+        .unit-card-img-wrap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .unit-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .unit-card:hover .unit-card-img {
+            transform: scale(1.04);
+        }
+
+        .unit-card-body {
+            padding: 1.75rem 1.75rem 1.5rem 1.75rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .unit-card-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.65rem;
+            letter-spacing: -0.015em;
+        }
+
+        .unit-card-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--color-text-muted);
+            margin-bottom: 1.75rem;
+            flex-grow: 1;
+        }
+
+        .unit-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.925rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            transition: var(--transition-smooth);
+            align-self: flex-start;
+        }
+
+        .unit-card-link svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.25s ease;
+        }
+
+        .unit-card-link:hover {
+            color: var(--color-primary-dark);
+        }
+
+        .unit-card-link:hover svg {
+            transform: translateX(5px);
+        }
+
         /* Keyframe Animations */
         @keyframes fadeIn {
             from {
@@ -391,14 +611,45 @@
             .hero-section {
                 min-height: 80vh;
                 padding: 3.5rem 0;
+                background:
+                    linear-gradient(to bottom,
+                        rgba(15, 30, 42, 0.82) 0%,
+                        rgba(15, 30, 42, 0.6) 55%,
+                        rgba(15, 30, 42, 0.3) 100%),
+                    url('assets/danauberatan.png') center/cover no-repeat;
+            }
+
+            .about-section {
+                padding: 4.5rem 0;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2.75rem;
+            }
+
+            .about-description {
+                max-width: 100%;
+            }
+
+            .units-section {
+                padding: 4.5rem 0;
+            }
+
+            .units-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .unit-card-media {
+                height: 220px;
             }
         }
 
         @media (max-width: 576px) {
-            .logo-placeholder {
-                width: 110px;
+            .brand-logo {
                 height: 42px;
-                font-size: 0.7rem;
+                max-height: 42px;
             }
 
             .btn-contact {
@@ -422,6 +673,30 @@
                 padding: 2.5rem 0;
                 min-height: 75vh;
             }
+
+            .about-section {
+                padding: 3.5rem 0;
+            }
+
+            .about-image-wrapper {
+                border-radius: 16px;
+            }
+
+            .units-section {
+                padding: 3.5rem 0;
+            }
+
+            .units-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .unit-card-body {
+                padding: 1.85rem 1.5rem 1.5rem 1.5rem;
+            }
+
+            .unit-card-media {
+                height: 190px;
+            }
         }
     </style>
 </head>
@@ -435,11 +710,10 @@
         <div class="container">
             <nav class="navbar" aria-label="Navigasi Utama">
 
-                <!-- Logo Brand (Dikosongkan sesuai instruksi: Belum ada gambar) -->
+                <!-- Logo Brand -->
                 <a href="#" class="navbar-brand" aria-label="Beranda PT Bintang Bali Bina Persada">
-                    <div class="logo-placeholder" title="Area Logo (Dikosongkan)">
-                        <!-- Tempatkan <img> logo di sini jika sudah tersedia -->
-                    </div>
+                    <img src="assets/logo PT.jpg" alt="Logo PT Bintang Bali Bina Persada" class="brand-logo"
+                        width="1466" height="1172">
                 </a>
 
                 <!-- Daftar Menu Navigasi -->
@@ -502,7 +776,7 @@
 
                     <!-- Subjudul / Deskripsi Singkat -->
                     <p class="hero-subtitle">
-                        Inovasi, Kolaborasi, dan Dampak Nyata untuk Negeriisii
+                        Inovasi, Kolaborasi, dan Dampak Nyata untuk Negeri
                     </p>
 
                     <!-- Tombol Call To Action (CTA) -->
@@ -514,6 +788,149 @@
                             <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           Tentang Kami Section
+           ========================================================================== -->
+        <section class="about-section" id="tentang-kami">
+            <div class="container">
+                <div class="about-grid">
+                    <!-- Konten Teks -->
+                    <div class="about-content">
+                        <span class="about-tagline">TENTANG KAMI</span>
+                        <h2 class="about-title">
+                            PT Bintang Bali<br>
+                            Bina Persada
+                        </h2>
+                        <p class="about-description">
+                            Sebagai perusahaan yang berakar di Bali, kami berkomitmen untuk menghadirkan solusi inovatif
+                            melalui empat unit usaha unggulan di bidang teknologi, penerbitan, hospitality, dan
+                            pertanian
+                        </p>
+                        <a href="#tentang-kami" class="btn-about">
+                            <span>Tentang Kami</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Gambar Gedung Kantor -->
+                    <div class="about-image-wrapper">
+                        <img src="assets/gedungPT1.jpg"
+                            alt="Kantor Pusat & Innovation Center PT Bintang Bali Bina Persada" class="about-image"
+                            width="1408" height="768" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           Unit Usaha Section
+           ========================================================================== -->
+        <section class="units-section" id="unit-usaha">
+            <div class="container">
+                <div class="units-header">
+                    <span class="units-tagline">UNIT USAHA</span>
+                    <h2 class="units-title">Empat Pilar untuk Kemajuan Bersama</h2>
+                </div>
+
+                <div class="units-grid">
+                    <!-- Unit 1: Bintang Bali Lab -->
+                    <article class="unit-card">
+                        <div class="unit-card-media">
+                            <div class="unit-card-img-wrap">
+                                <img src="assets/bintangbalilab.jpeg"
+                                    alt="Bintang Bali Lab - Inovasi Teknologi Pertanian Modern" class="unit-card-img"
+                                    width="694" height="288" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="unit-card-body">
+                            <h3 class="unit-card-title">Bintang Bali Lab</h3>
+                            <p class="unit-card-desc">Inovasi teknologi untuk masa depan yang baik.</p>
+                            <a href="#unit-lab" class="unit-card-link">
+                                <span>Selengkapnya</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Unit 2: Bintang Bali Press -->
+                    <article class="unit-card">
+                        <div class="unit-card-media">
+                            <div class="unit-card-img-wrap">
+                                <img src="assets/bintangbalipress.jpg" alt="Bintang Bali Press - Penerbitan dan Edukasi"
+                                    class="unit-card-img" width="1600" height="1067" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="unit-card-body">
+                            <h3 class="unit-card-title">Bintang Bali Press</h3>
+                            <p class="unit-card-desc">Penerbitan dan edukasi untuk generasi mendatang.</p>
+                            <a href="#unit-press" class="unit-card-link">
+                                <span>Selengkapnya</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Unit 3: Bintang Bali Living Collection -->
+                    <article class="unit-card">
+                        <div class="unit-card-media">
+                            <div class="unit-card-img-wrap">
+                                <img src="assets/bintangbaliliving.jpg"
+                                    alt="Bintang Bali Living Collection - Hospitality & Villa" class="unit-card-img"
+                                    width="1024" height="683" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="unit-card-body">
+                            <h3 class="unit-card-title">Bintang Bali Living<br>Collection</h3>
+                            <p class="unit-card-desc">Pengalaman hidup terbaik di Bali.</p>
+                            <a href="#unit-living" class="unit-card-link">
+                                <span>Selengkapnya</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Unit 4: Bintang Bali Agro -->
+                    <article class="unit-card">
+                        <div class="unit-card-media">
+                            <div class="unit-card-img-wrap">
+                                <img src="assets/bintangbaliagro.jpg"
+                                    alt="Bintang Bali Agro - Pertanian Berkelanjutan Hidroponik" class="unit-card-img"
+                                    width="1600" height="1067" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="unit-card-body">
+                            <h3 class="unit-card-title">Bintang Bali Agro</h3>
+                            <p class="unit-card-desc">Pertanian berkelanjutan untuk kehidupan yang lebih baik.</p>
+                            <a href="#unit-agro" class="unit-card-link">
+                                <span>Selengkapnya</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
