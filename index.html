@@ -545,6 +545,229 @@
             transform: translateX(5px);
         }
 
+        /* ==========================================================================
+       CTA Banner Section
+       ========================================================================== */
+        .cta-section {
+            padding: 4.5rem 0 3rem 0;
+            background-color: var(--color-white);
+        }
+
+        .cta-container {
+            width: 100%;
+            max-width: 1420px;
+            margin: 0 auto;
+            padding: 0 clamp(1.5rem, 3.5vw, 3.5rem);
+        }
+
+        .cta-banner {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            background:
+                linear-gradient(to right,
+                    rgba(15, 35, 25, 0.72) 0%,
+                    rgba(15, 35, 25, 0.5) 55%,
+                    rgba(15, 35, 25, 0.3) 100%),
+                url('assets/sawah1.jpg') center/cover no-repeat;
+            padding: 2.25rem 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2.5rem;
+            box-shadow: 0 14px 32px -10px rgba(15, 35, 25, 0.18);
+        }
+
+        .cta-content {
+            max-width: 680px;
+            color: var(--color-white);
+        }
+
+        .cta-title {
+            font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+            font-weight: 800;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            color: var(--color-white);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .cta-subtitle {
+            font-size: clamp(1rem, 1.8vw, 1.15rem);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.92);
+            line-height: 1.6;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-cta-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background-color: var(--color-white);
+            color: var(--color-primary);
+            font-size: 1.05rem;
+            font-weight: 700;
+            padding: 1.05rem 2.4rem;
+            border-radius: 9999px;
+            white-space: nowrap;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+            transition: var(--transition-smooth);
+            flex-shrink: 0;
+        }
+
+        .btn-cta-contact svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.25s ease;
+        }
+
+        .btn-cta-contact:hover {
+            background-color: #f8fafc;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-cta-contact:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* ==========================================================================
+       Site Footer
+       ========================================================================== */
+        .site-footer {
+            background-color: var(--color-white);
+            padding: 5rem 0 2.5rem 0;
+            border-top: 1px solid #f1f5f9;
+            width: 100%;
+        }
+
+        .footer-container {
+            width: 100%;
+            max-width: 100%;
+            padding: 0 clamp(2rem, 5vw, 5.5rem);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2.2fr 1fr 1.2fr 1.5fr;
+            gap: clamp(2rem, 4vw, 4.5rem);
+            align-items: flex-start;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-logo {
+            height: 52px;
+            width: auto;
+            max-height: 52px;
+            object-fit: contain;
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-tagline-main {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--color-text-dark);
+            margin-bottom: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .footer-description {
+            font-size: 0.875rem;
+            line-height: 1.7;
+            color: var(--color-text-muted);
+            max-width: 440px;
+        }
+
+        .footer-col-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-primary);
+            margin-bottom: 1.35rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .footer-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            transition: var(--transition-smooth);
+            display: inline-block;
+        }
+
+        .footer-link:hover {
+            color: var(--color-primary);
+            transform: translateX(3px);
+        }
+
+        .footer-contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.875rem;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        .footer-contact-item svg {
+            width: 18px;
+            height: 18px;
+            color: var(--color-primary);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .footer-contact-item a {
+            color: inherit;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-contact-item a:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-bottom {
+            margin-top: 4.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.825rem;
+            color: #94a3b8;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-values {
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
         /* Keyframe Animations */
         @keyframes fadeIn {
             from {
@@ -644,6 +867,27 @@
             .unit-card-media {
                 height: 220px;
             }
+
+            .cta-banner {
+                padding: 2.25rem 2rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.75rem;
+            }
+
+            .btn-cta-contact {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2.75rem;
+            }
+
+            .footer-brand {
+                grid-column: span 2;
+            }
         }
 
         @media (max-width: 576px) {
@@ -696,6 +940,40 @@
 
             .unit-card-media {
                 height: 190px;
+            }
+
+            .cta-section {
+                padding: 3.5rem 0 2rem 0;
+            }
+
+            .cta-banner {
+                padding: 2.25rem 1.75rem;
+                border-radius: 20px;
+                background:
+                    linear-gradient(to bottom,
+                        rgba(15, 35, 25, 0.78) 0%,
+                        rgba(15, 35, 25, 0.6) 100%),
+                    url('assets/sawah1.jpg') center/cover no-repeat;
+            }
+
+            .footer-container {
+                padding: 0 1.5rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2.25rem;
+            }
+
+            .footer-brand {
+                grid-column: span 1;
+            }
+
+            .footer-bottom {
+                margin-top: 3rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
             }
         }
     </style>
@@ -934,7 +1212,108 @@
                 </div>
             </div>
         </section>
+
+        <!-- ==========================================================================
+           CTA Banner Section
+           ========================================================================== -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-banner">
+                    <div class="cta-content">
+                        <h2 class="cta-title">Bersama B3P, Menuju Bali yang Lebih Baik</h2>
+                        <p class="cta-subtitle">Kolaborasi dan inovasi untuk masa depan yang berkelanjutan.</p>
+                    </div>
+                    <a href="#kontak" class="btn-cta-contact">
+                        <span>Hubungi Kami</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- ==========================================================================
+       Site Footer
+       ========================================================================== -->
+    <footer class="site-footer" id="kontak">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Kolom 1: Profil Perusahaan -->
+                <div class="footer-brand">
+                    <img src="assets/logo PT.jpg" alt="Logo PT Bintang Bali Bina Persada" class="footer-logo"
+                        width="1466" height="1172" loading="lazy">
+                    <p class="footer-tagline-main">Enriching Education, Empowering Expertise, Elevating Experience.</p>
+                    <p class="footer-description">
+                        Menghubungkan dunia pendidikan, penelitian, teknologi, industri, penerbitan, agrikultur, serta
+                        hospitality dalam satu ekosistem inovasi yang berkelanjutan.
+                    </p>
+                </div>
+
+                <!-- Kolom 2: Navigasi -->
+                <div class="footer-col">
+                    <h3 class="footer-col-title">NAVIGASI</h3>
+                    <ul class="footer-links">
+                        <li><a href="#beranda" class="footer-link">BERANDA</a></li>
+                        <li><a href="#tentang-kami" class="footer-link">TENTANG KAMI</a></li>
+                        <li><a href="#unit-usaha" class="footer-link">UNIT USAHA</a></li>
+                        <li><a href="#visi-misi" class="footer-link">VISI MISI</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolom 3: Eksplorasi -->
+                <div class="footer-col">
+                    <h3 class="footer-col-title">EKSPLORASI</h3>
+                    <ul class="footer-links">
+                        <li><a href="#filosofi" class="footer-link">FILOSOFI PERUSAHAAN</a></li>
+                        <li><a href="#manifesto" class="footer-link">THE B3P MANIFESTO</a></li>
+                        <li><a href="#kontak" class="footer-link">KONTAK</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolom 4: Kantor Pusat -->
+                <div class="footer-col">
+                    <h3 class="footer-col-title">KANTOR PUSAT</h3>
+                    <ul class="footer-contact-list">
+                        <li class="footer-contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>Denpasar &amp; Badung, Bali Indonesia</span>
+                        </li>
+                        <li class="footer-contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                            </svg>
+                            <a href="mailto:info@bintangbalibp.com">info@bintangbalibp.com</a>
+                        </li>
+                        <li class="footer-contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                            <a href="tel:+623618900123">+62 361 8900 123</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom Bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2024 PT Bintang Bali Bina Persada. All rights reserved.</p>
+                <p class="footer-values">Knowledge &bull; Innovation &bull; Product &bull; Experience &bull; Impact</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- ==========================================================================
        JavaScript Interaktif (Toggle Mobile Menu & Responsive Handling)
