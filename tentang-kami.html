@@ -228,9 +228,9 @@
         }
 
         /* ==========================================================================
-       Page Hero / Banner Section (seperti di gambar referensi)
+       Hero Section — Tentang Kami (Banner pendek seperti referensi)
        ========================================================================== */
-        .page-hero {
+        .hero-section {
             position: relative;
             height: 340px;
             display: flex;
@@ -238,18 +238,18 @@
             background:
                 linear-gradient(to right,
                     rgba(15, 30, 42, 0.72) 0%,
-                    rgba(15, 30, 42, 0.5) 50%,
+                    rgba(15, 30, 42, 0.52) 50%,
                     rgba(15, 30, 42, 0.18) 100%),
                 url('foto_tentang kami/foto hero.png') center/cover no-repeat;
             color: var(--color-white);
             overflow: hidden;
         }
 
-        .page-hero-content {
-            animation: fadeIn 0.7s ease-out;
+        .hero-content {
+            animation: fadeIn 0.8s ease-out;
         }
 
-        .page-hero-label {
+        .hero-tagline {
             font-size: 0.8rem;
             font-weight: 700;
             letter-spacing: 0.14em;
@@ -258,18 +258,18 @@
             margin-bottom: 0.65rem;
         }
 
-        .page-hero-title {
-            font-size: clamp(2rem, 4.5vw, 3.2rem);
+        .hero-title {
+            font-size: clamp(2rem, 4.5vw, 3rem);
             font-weight: 800;
             line-height: 1.15;
             color: var(--color-white);
-            margin-bottom: 1rem;
+            margin-bottom: 0.85rem;
             text-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
             letter-spacing: -0.02em;
         }
 
-        .page-hero-desc {
-            font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+        .hero-subtitle {
+            font-size: clamp(0.9rem, 1.6vw, 1rem);
             font-weight: 400;
             color: rgba(255, 255, 255, 0.88);
             max-width: 560px;
@@ -299,30 +299,30 @@
 
         .breadcrumb-sep {
             font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.45);
+            color: rgba(255, 255, 255, 0.4);
         }
 
-        .breadcrumb-current {
+        .breadcrumb-active {
             color: var(--color-gold);
             font-weight: 600;
         }
 
         /* ==========================================================================
-       Tentang Kami — Konten Utama
+       Tentang Kami Section — Profil Perusahaan
        ========================================================================== */
-        .about-main {
-            padding: 6rem 0;
+        .about-section {
+            padding: 6.5rem 0;
             background-color: var(--color-white);
+            position: relative;
         }
 
         .about-grid {
             display: grid;
             grid-template-columns: 1.15fr 1fr;
             align-items: center;
-            gap: 5rem;
+            gap: 4.5rem;
         }
 
-        /* Gambar di kiri */
         .about-image-wrapper {
             position: relative;
             border-radius: 22px;
@@ -334,7 +334,7 @@
         .about-image {
             width: 100%;
             height: auto;
-            max-height: 500px;
+            max-height: 480px;
             object-fit: cover;
             display: block;
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -344,7 +344,6 @@
             transform: scale(1.03);
         }
 
-        /* Teks di kanan */
         .about-content {
             display: flex;
             flex-direction: column;
@@ -362,7 +361,7 @@
         }
 
         .about-title {
-            font-size: clamp(2rem, 3.5vw, 2.75rem);
+            font-size: clamp(2.1rem, 3.8vw, 2.85rem);
             font-weight: 800;
             line-height: 1.2;
             letter-spacing: -0.025em;
@@ -371,22 +370,22 @@
         }
 
         .about-description {
-            font-size: 1.025rem;
-            line-height: 1.8;
+            font-size: 1.05rem;
+            line-height: 1.75;
             color: #4b5563;
             margin-bottom: 1.5rem;
+            max-width: 520px;
         }
 
         /* ==========================================================================
-       Visi Misi Section
+       Visi & Misi Section
        ========================================================================== */
         .visi-misi-section {
-            padding: 6rem 0;
+            padding: 6.5rem 0;
             background-color: #f8fafc;
         }
 
         .section-header {
-            text-align: center;
             margin-bottom: 3.5rem;
         }
 
@@ -401,26 +400,30 @@
         }
 
         .section-title {
-            font-size: clamp(2rem, 3.5vw, 2.75rem);
+            font-size: clamp(2.1rem, 3.8vw, 2.75rem);
             font-weight: 800;
-            line-height: 1.2;
+            line-height: 1.25;
             letter-spacing: -0.025em;
             color: var(--color-primary);
         }
 
         .visi-misi-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.25rem;
         }
 
         .vm-card {
             background-color: var(--color-white);
             border-radius: 20px;
-            padding: 2.5rem 2.25rem;
             border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 12px rgba(15, 30, 42, 0.04);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
             transition: var(--transition-smooth);
+            position: relative;
+            box-shadow: 0 4px 12px rgba(15, 30, 42, 0.03);
+            padding: 2.5rem 2.25rem;
         }
 
         .vm-card:hover {
@@ -447,26 +450,27 @@
         }
 
         .vm-label {
-            font-size: 0.8rem;
+            font-size: 0.875rem;
             font-weight: 700;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
             color: #d48b16;
             margin-bottom: 0.65rem;
         }
 
         .vm-title {
-            font-size: 1.5rem;
-            font-weight: 800;
+            font-size: 1.35rem;
+            font-weight: 700;
             color: var(--color-primary);
             margin-bottom: 1rem;
             letter-spacing: -0.015em;
         }
 
         .vm-text {
-            font-size: 0.975rem;
-            line-height: 1.75;
-            color: #4b5563;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            color: var(--color-text-muted);
+            flex-grow: 1;
         }
 
         .vm-list {
@@ -480,9 +484,9 @@
             display: flex;
             align-items: flex-start;
             gap: 0.65rem;
-            font-size: 0.975rem;
+            font-size: 0.95rem;
             line-height: 1.6;
-            color: #4b5563;
+            color: var(--color-text-muted);
         }
 
         .vm-list li::before {
@@ -499,48 +503,49 @@
        Nilai Perusahaan Section
        ========================================================================== */
         .values-section {
-            padding: 6rem 0;
+            padding: 6.5rem 0;
             background-color: var(--color-white);
         }
 
         .values-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3.5rem;
+            gap: 2.25rem;
         }
 
         .value-card {
-            background-color: #f8fafc;
-            border-radius: 18px;
-            padding: 2.25rem 2rem;
+            background-color: var(--color-white);
+            border-radius: 20px;
             border: 1px solid #e2e8f0;
-            text-align: center;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
             transition: var(--transition-smooth);
+            box-shadow: 0 4px 12px rgba(15, 30, 42, 0.03);
+            padding: 2rem 1.75rem;
         }
 
         .value-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(15, 30, 42, 0.07);
+            box-shadow: 0 16px 32px rgba(15, 30, 42, 0.08);
             border-color: #cbd5e1;
-            background-color: var(--color-white);
         }
 
         .value-icon {
-            width: 56px;
-            height: 56px;
+            width: 48px;
+            height: 48px;
             background-color: rgba(21, 55, 74, 0.07);
-            border-radius: 16px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.25rem auto;
+            margin-bottom: 1.25rem;
             color: var(--color-primary);
         }
 
         .value-icon svg {
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
         }
 
         .value-title {
@@ -562,7 +567,14 @@
        ========================================================================== */
         .cta-section {
             padding: 4.5rem 0 3rem 0;
-            background-color: #f8fafc;
+            background-color: var(--color-white);
+        }
+
+        .cta-container {
+            width: 100%;
+            max-width: 1420px;
+            margin: 0 auto;
+            padding: 0 clamp(1.5rem, 3.5vw, 3.5rem);
         }
 
         .cta-banner {
@@ -787,7 +799,7 @@
         }
 
         /* ==========================================================================
-       Responsive Styles
+       Responsive Styles (Mobile & Tablet)
        ========================================================================== */
         @media (max-width: 992px) {
             .navbar {
@@ -836,8 +848,17 @@
                 font-size: 0.85rem;
             }
 
-            .page-hero {
+            .hero-section {
                 height: 280px;
+                background:
+                    linear-gradient(to bottom,
+                        rgba(15, 30, 42, 0.78) 0%,
+                        rgba(15, 30, 42, 0.5) 100%),
+                    url('foto_tentang kami/foto hero.png') center/cover no-repeat;
+            }
+
+            .about-section {
+                padding: 4.5rem 0;
             }
 
             .about-grid {
@@ -845,13 +866,26 @@
                 gap: 2.75rem;
             }
 
+            .about-description {
+                max-width: 100%;
+            }
+
+            .visi-misi-section {
+                padding: 4.5rem 0;
+            }
+
             .visi-misi-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
+            .values-section {
+                padding: 4.5rem 0;
+            }
+
             .values-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
             }
 
             .cta-banner {
@@ -898,11 +932,11 @@
                 text-align: center;
             }
 
-            .page-hero {
+            .hero-section {
                 height: 260px;
             }
 
-            .about-main {
+            .about-section {
                 padding: 3.5rem 0;
             }
 
@@ -919,7 +953,7 @@
             }
 
             .cta-section {
-                padding: 3rem 0 2rem 0;
+                padding: 3.5rem 0 2rem 0;
             }
 
             .cta-banner {
@@ -986,7 +1020,7 @@
                     </li>
                 </ul>
 
-                <!-- Action Buttons -->
+                <!-- Action Buttons (Search & Hubungi Kami) -->
                 <div class="nav-actions">
                     <!-- Tombol Pencarian -->
                     <button class="search-btn" aria-label="Buka Pencarian" title="Cari">
@@ -1015,41 +1049,41 @@
     <main>
 
         <!-- ==========================================================================
-           Page Hero / Banner — Tentang Kami
+           Hero Section — Tentang Kami
            ========================================================================== -->
-        <section class="page-hero">
+        <section class="hero-section">
             <div class="container">
-                <div class="page-hero-content">
-                    <!-- Label kecil di atas -->
-                    <p class="page-hero-label">PT BINTANG BALI BINA PERSADA</p>
+                <div class="hero-content">
+                    <!-- Label kecil -->
+                    <p class="hero-tagline">PT BINTANG BALI BINA PERSADA</p>
 
                     <!-- Judul Halaman -->
-                    <h1 class="page-hero-title">Tentang Kami</h1>
+                    <h1 class="hero-title">Tentang Kami</h1>
 
                     <!-- Deskripsi Singkat -->
-                    <p class="page-hero-desc">
+                    <p class="hero-subtitle">
                         Perusahaan yang berakar di Bali, berkomitmen menghadirkan inovasi
-                        dan kolaborasi nyata untuk kemajuan masyarakat dan bangsa.
+                        dan kolaborasi nyata di bidang teknologi, penerbitan, hospitality, dan agrikultur.
                     </p>
 
                     <!-- Breadcrumb -->
                     <nav class="breadcrumb" aria-label="Breadcrumb">
                         <a href="index.html">Beranda</a>
-                        <span class="breadcrumb-sep">›</span>
-                        <span class="breadcrumb-current">Tentang Kami</span>
+                        <span class="breadcrumb-sep">&rsaquo;</span>
+                        <span class="breadcrumb-active">Tentang Kami</span>
                     </nav>
                 </div>
             </div>
         </section>
 
         <!-- ==========================================================================
-           Tentang Kami — Profil Perusahaan (Gambar kiri, Teks kanan)
+           Tentang Kami — Profil Perusahaan
            ========================================================================== -->
-        <section class="about-main">
+        <section class="about-section" id="tentang-kami">
             <div class="container">
                 <div class="about-grid">
 
-                    <!-- Gambar Gedung / Foto Perusahaan (di kiri) -->
+                    <!-- Gambar Kiri -->
                     <div class="about-image-wrapper">
                         <img src="assets/gedungPT1.jpg"
                             alt="Kantor Pusat PT Bintang Bali Bina Persada"
@@ -1057,7 +1091,7 @@
                             width="1408" height="768" loading="lazy">
                     </div>
 
-                    <!-- Konten Teks (di kanan) -->
+                    <!-- Teks Kanan -->
                     <div class="about-content">
                         <span class="about-tagline">TENTANG KAMI</span>
                         <h2 class="about-title">
@@ -1071,9 +1105,8 @@
                             penerbitan, agrikultur, dan hospitality dalam satu visi yang utuh.
                         </p>
                         <p class="about-description">
-                            Dengan empat unit usaha unggulan — Bintang Bali Lab, Bintang Bali Press,
-                            Bintang Bali Living Collection, dan Bintang Bali Agro — kami terus berkarya
-                            untuk masa depan Bali yang lebih maju dan berkelanjutan.
+                            Dengan empat unit usaha unggulan, kami terus berkarya untuk masa depan
+                            Bali yang lebih maju dan berkelanjutan.
                         </p>
                     </div>
 
@@ -1092,6 +1125,7 @@
                 </div>
 
                 <div class="visi-misi-grid">
+
                     <!-- Visi -->
                     <div class="vm-card">
                         <div class="vm-icon">
@@ -1099,10 +1133,6 @@
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <circle cx="12" cy="12" r="3"></circle>
-                                <line x1="12" y1="2" x2="12" y2="5"></line>
-                                <line x1="12" y1="19" x2="12" y2="22"></line>
-                                <line x1="2" y1="12" x2="5" y2="12"></line>
-                                <line x1="19" y1="12" x2="22" y2="12"></line>
                             </svg>
                         </div>
                         <p class="vm-label">VISI</p>
@@ -1110,7 +1140,7 @@
                         <p class="vm-text">
                             Menjadi perusahaan inovatif terdepan di Bali yang mendorong kemajuan
                             pendidikan, teknologi, dan ekonomi kreatif, serta memberikan dampak
-                            positif yang nyata bagi masyarakat dan lingkungan sekitarnya.
+                            positif yang nyata bagi masyarakat dan lingkungan.
                         </p>
                     </div>
 
@@ -1128,16 +1158,17 @@
                         <ul class="vm-list">
                             <li>Mengembangkan inovasi teknologi untuk mendukung kemajuan pendidikan dan industri.</li>
                             <li>Menerbitkan karya-karya berkualitas yang memperkaya literasi masyarakat.</li>
-                            <li>Menghadirkan pengalaman hospitality terbaik yang berbasis kearifan lokal Bali.</li>
+                            <li>Menghadirkan pengalaman hospitality terbaik berbasis kearifan lokal Bali.</li>
                             <li>Membangun pertanian berkelanjutan yang ramah lingkungan dan produktif.</li>
                         </ul>
                     </div>
+
                 </div>
             </div>
         </section>
 
         <!-- ==========================================================================
-           Nilai-Nilai Perusahaan
+           Nilai Perusahaan Section
            ========================================================================== -->
         <section class="values-section" id="filosofi">
             <div class="container">
@@ -1147,7 +1178,7 @@
                 </div>
 
                 <div class="values-grid">
-                    <!-- Nilai 1 -->
+
                     <div class="value-card">
                         <div class="value-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -1159,19 +1190,19 @@
                         <p class="value-desc">Pengetahuan adalah fondasi dari setiap langkah inovasi yang kami ambil.</p>
                     </div>
 
-                    <!-- Nilai 2 -->
                     <div class="value-card">
                         <div class="value-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
                             </svg>
                         </div>
                         <h3 class="value-title">Innovation</h3>
                         <p class="value-desc">Kami terus berinovasi untuk menghadirkan solusi terbaik bagi masyarakat.</p>
                     </div>
 
-                    <!-- Nilai 3 -->
                     <div class="value-card">
                         <div class="value-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -1185,7 +1216,6 @@
                         <p class="value-desc">Produk berkualitas adalah wujud nyata dari komitmen kami kepada pelanggan.</p>
                     </div>
 
-                    <!-- Nilai 4 -->
                     <div class="value-card">
                         <div class="value-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -1200,7 +1230,6 @@
                         <p class="value-desc">Pengalaman bermakna yang kami ciptakan menjadi daya dorong pertumbuhan bersama.</p>
                     </div>
 
-                    <!-- Nilai 5 -->
                     <div class="value-card">
                         <div class="value-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -1212,27 +1241,27 @@
                         <p class="value-desc">Setiap langkah kami diarahkan untuk menciptakan dampak positif yang berkelanjutan.</p>
                     </div>
 
-                    <!-- Nilai 6 -->
                     <div class="value-card">
                         <div class="value-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path>
-                                <path d="M12 8v4l3 3"></path>
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
                             </svg>
                         </div>
                         <h3 class="value-title">Kolaborasi</h3>
                         <p class="value-desc">Membangun kemitraan strategis yang saling menguntungkan untuk kemajuan bersama.</p>
                     </div>
+
                 </div>
             </div>
         </section>
 
         <!-- ==========================================================================
-           CTA Banner
+           CTA Banner Section
            ========================================================================== -->
         <section class="cta-section">
-            <div class="container">
+            <div class="cta-container">
                 <div class="cta-banner">
                     <div class="cta-content">
                         <h2 class="cta-title">Bersama B3P, Menuju Bali yang Lebih Baik</h2>
@@ -1258,6 +1287,7 @@
     <footer class="site-footer" id="kontak">
         <div class="footer-container">
             <div class="footer-grid">
+
                 <!-- Kolom 1: Profil Perusahaan -->
                 <div class="footer-brand">
                     <img src="foto_tentang kami/logo bintang bali bin persada.png"
@@ -1321,6 +1351,7 @@
                         </li>
                     </ul>
                 </div>
+
             </div>
 
             <!-- Footer Bottom Bar -->
@@ -1332,7 +1363,7 @@
     </footer>
 
     <!-- ==========================================================================
-       JavaScript Interaktif
+       JavaScript Interaktif (Toggle Mobile Menu & Responsive Handling)
        ========================================================================== -->
     <script>
         const menuToggle = document.getElementById('menuToggle');
@@ -1345,6 +1376,7 @@
                 menuToggle.setAttribute('aria-expanded', isOpen);
             });
 
+            // Menutup menu saat link diklik pada mode mobile
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', () => {
                     navMenu.classList.remove('open');
