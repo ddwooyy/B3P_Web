@@ -516,6 +516,210 @@
         }
 
         /* ==========================================================================
+       Section: Produk & Inovasi
+       ========================================================================== */
+        .products-section {
+            padding: 4.5rem 0 5.5rem 0;
+            background-color: var(--color-white);
+        }
+
+        .products-header {
+            margin-bottom: 3rem;
+        }
+
+        .products-title {
+            font-size: clamp(1.85rem, 3.2vw, 2.35rem);
+            font-weight: 800;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .products-subtitle {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background-color: var(--color-white);
+            border-radius: 18px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 12px rgba(15, 30, 42, 0.03);
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 30px rgba(15, 30, 42, 0.08);
+            border-color: #cbd5e1;
+        }
+
+        .product-media {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            background-color: #f1f5f9;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 2;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(4px);
+            color: #1e293b;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+
+        .product-body {
+            padding: 1.35rem 1.35rem 1.5rem 1.35rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .product-card-desc {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: var(--color-text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .product-link {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-accent-blue);
+            transition: var(--transition-smooth);
+            align-self: flex-start;
+        }
+
+        .product-link:hover {
+            color: #0369a1;
+            transform: translateX(3px);
+        }
+
+        /* ==========================================================================
+       Section: CTA Banner
+       ========================================================================== */
+        .cta-banner-section {
+            padding: 1rem 0 5.5rem 0;
+            background-color: var(--color-white);
+        }
+
+        .cta-banner-card {
+            position: relative;
+            border-radius: 22px;
+            overflow: hidden;
+            background:
+                linear-gradient(to right,
+                    rgba(10, 35, 20, 0.72) 0%,
+                    rgba(10, 35, 20, 0.5) 55%,
+                    rgba(10, 35, 20, 0.25) 100%),
+                url('foto_unit _usaha/sawah.png') center/cover no-repeat;
+            padding: 2.75rem 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2.5rem;
+            box-shadow: 0 16px 36px -10px rgba(10, 35, 20, 0.25);
+        }
+
+        .cta-banner-content {
+            max-width: 680px;
+            color: var(--color-white);
+        }
+
+        .cta-banner-title {
+            font-size: clamp(1.85rem, 3.2vw, 2.45rem);
+            font-weight: 800;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.65rem;
+            color: var(--color-white);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-banner-desc {
+            font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.6;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-cta-white {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            background-color: var(--color-white);
+            color: var(--color-primary);
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 0.95rem 2.25rem;
+            border-radius: 9999px;
+            white-space: nowrap;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+            transition: var(--transition-smooth);
+            flex-shrink: 0;
+        }
+
+        .btn-cta-white svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.25s ease;
+        }
+
+        .btn-cta-white:hover {
+            background-color: #f8fafc;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+        }
+
+        .btn-cta-white:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* ==========================================================================
        Site Footer
        ========================================================================== */
         .site-footer {
@@ -667,7 +871,8 @@
        Responsive Styles (Mobile & Tablet)
        ========================================================================== */
         @media (max-width: 1024px) {
-            .units-pilar-grid {
+            .units-pilar-grid,
+            .products-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1.75rem;
             }
@@ -739,6 +944,18 @@
                 max-width: 100%;
             }
 
+            .cta-banner-card {
+                padding: 2.25rem 2rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.75rem;
+            }
+
+            .btn-cta-white {
+                width: 100%;
+                justify-content: center;
+            }
+
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 2.75rem;
@@ -750,7 +967,8 @@
         }
 
         @media (max-width: 600px) {
-            .units-pilar-grid {
+            .units-pilar-grid,
+            .products-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
@@ -793,6 +1011,24 @@
 
             .units-pilar-section {
                 padding: 3.5rem 0;
+            }
+
+            .products-section {
+                padding: 3.5rem 0;
+            }
+
+            .cta-banner-section {
+                padding: 0.5rem 0 3.5rem 0;
+            }
+
+            .cta-banner-card {
+                padding: 2rem 1.5rem;
+                border-radius: 18px;
+                background:
+                    linear-gradient(to bottom,
+                        rgba(10, 35, 20, 0.8) 0%,
+                        rgba(10, 35, 20, 0.58) 100%),
+                    url('foto_unit _usaha/sawah.png') center/cover no-repeat;
             }
 
             .footer-container {
@@ -1025,6 +1261,101 @@
                             </a>
                         </div>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           Section: Produk & Inovasi (Solusi dan Inovasi dari Setiap Unit Usaha)
+           ========================================================================== -->
+        <section class="products-section">
+            <div class="container">
+                <!-- Header Section -->
+                <div class="products-header">
+                    <span class="section-tagline">PRODUK &amp; INOVASI</span>
+                    <h2 class="products-title">Solusi dan Inovasi dari Setiap Unit Usaha</h2>
+                    <p class="products-subtitle">Kenali berbagai produk dan inovasi yang dikembangkan oleh B3P.</p>
+                </div>
+
+                <!-- 4 Kolom Cards -->
+                <div class="products-grid">
+                    <!-- 1. TOYA -->
+                    <article class="product-card">
+                        <div class="product-media">
+                            <span class="product-badge">Bintang Bali Lab</span>
+                            <img src="foto_unit _usaha/toya.png"
+                                alt="TOYA - Teknologi Pertanian Cerdas" class="product-img" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-card-title">TOYA</h3>
+                            <p class="product-card-desc">Teknologi pertanian cerdas untuk masa depan.</p>
+                            <a href="#toya" class="product-link">Selengkapnya</a>
+                        </div>
+                    </article>
+
+                    <!-- 2. TARA -->
+                    <article class="product-card">
+                        <div class="product-media">
+                            <span class="product-badge">Bintang Bali Press</span>
+                            <img src="foto_unit _usaha/tara.png"
+                                alt="TARA - Media Pembelajaran" class="product-img" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-card-title">TARA</h3>
+                            <p class="product-card-desc">Media pembelajaran untuk mendukung pendidikan berkualitas.</p>
+                            <a href="#tara" class="product-link">Selengkapnya</a>
+                        </div>
+                    </article>
+
+                    <!-- 3. Batan Pohgedang Villa -->
+                    <article class="product-card">
+                        <div class="product-media">
+                            <span class="product-badge">Bintang Bali Living</span>
+                            <img src="foto_unit _usaha/villa.png"
+                                alt="Batan Pohgedang Villa" class="product-img" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-card-title">Batan Pohgedang Villa</h3>
+                            <p class="product-card-desc">Pengalaman menginap terbaik di Bali.</p>
+                            <a href="#villa" class="product-link">Selengkapnya</a>
+                        </div>
+                    </article>
+
+                    <!-- 4. Dika Devi Farm -->
+                    <article class="product-card">
+                        <div class="product-media">
+                            <span class="product-badge">Bintang Bali Agro</span>
+                            <img src="foto_unit _usaha/fram.png"
+                                alt="Dika Devi Farm - Pertanian Modern" class="product-img" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-card-title">Dika Devi Farm</h3>
+                            <p class="product-card-desc">Pertanian modern dan berkelanjutan.</p>
+                            <a href="#farm" class="product-link">Selengkapnya</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           Section: CTA Banner (Bersama B3P, Mari Berkarya untuk Bali)
+           ========================================================================== -->
+        <section class="cta-banner-section">
+            <div class="container">
+                <div class="cta-banner-card">
+                    <div class="cta-banner-content">
+                        <h2 class="cta-banner-title">Bersama B3P, Mari Berkarya untuk Bali</h2>
+                        <p class="cta-banner-desc">Kolaborasi dan inovasi untuk masa depan yang lebih baik.</p>
+                    </div>
+                    <a href="index.html#kontak" class="btn-cta-white">
+                        <span>Hubungi Kami</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </section>
