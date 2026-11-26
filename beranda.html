@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT Bintang Bali Bina Persada</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="preload" as="image" href="assets/danauberatan.png">
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+       Reset & Base Styles
+       ========================================================================== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --color-primary: #15374a;
+            --color-primary-dark: #0f2836;
+            --color-text-dark: #1e293b;
+            --color-text-muted: #64748b;
+            --color-white: #ffffff;
+            --color-gold: #f4c062;
+            --transition-smooth: all 0.25s ease;
+            --container-max-width: 1240px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--color-text-dark);
+            background-color: #f8fafc;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            border: none;
+            background: none;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ==========================================================================
+       Header & Navigation Bar
+       ========================================================================== */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--color-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            transition: var(--transition-smooth);
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 76px;
+        }
+
+        /* Logo Area */
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .brand-logo {
+            height: 52px;
+            width: auto;
+            max-height: 52px;
+            object-fit: contain;
+            display: block;
+            transition: var(--transition-smooth);
+        }
+
+        .navbar-brand:hover .brand-logo {
+            opacity: 0.92;
+            transform: scale(1.02);
+        }
+
+        /* Menu Navigasi Tengah */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 1.75rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #23272f;
+            padding: 0.5rem 0;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--color-primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-primary);
+            transition: width 0.25s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Actions Kanan (Search & CTA Button) */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .search-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: #1e293b;
+            transition: var(--transition-smooth);
+        }
+
+        .search-btn:hover {
+            background-color: #f1f5f9;
+            color: var(--color-primary);
+        }
+
+        .btn-contact {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            font-size: 0.925rem;
+            font-weight: 600;
+            padding: 0.65rem 1.6rem;
+            border-radius: 9999px;
+            transition: var(--transition-smooth);
+            box-shadow: 0 3px 8px rgba(21, 55, 74, 0.2);
+        }
+
+        .btn-contact:hover {
+            background-color: var(--color-primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(21, 55, 74, 0.28);
+        }
+
+        /* Mobile Hamburger Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: #1e293b;
+            transition: var(--transition-smooth);
+            border-radius: 2px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* ==========================================================================
+       Hero Section
+       ========================================================================== */
+        .hero-section {
+            position: relative;
+            min-height: calc(100vh - 76px);
+            display: flex;
+            align-items: center;
+            background:
+                /* Gradient Overlay untuk keterbacaan teks maksimal */
+                linear-gradient(to right,
+                    rgba(15, 30, 42, 0.78) 0%,
+                    rgba(15, 30, 42, 0.52) 48%,
+                    rgba(15, 30, 42, 0.18) 100%),
+                /* Foto Pura Ulun Danu Beratan, Danau Beratan Bali */
+                url('assets/danauberatan.png') center/cover no-repeat;
+            color: var(--color-white);
+            padding: 4.5rem 0;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 680px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .hero-tagline {
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.92);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2.35rem, 5vw, 3.85rem);
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--color-white);
+            margin-bottom: 1.25rem;
+            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.25rem;
+            line-height: 1.6;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background-color: var(--color-white);
+            color: var(--color-text-dark);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.9rem 2rem;
+            border-radius: 9999px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            transition: var(--transition-smooth);
+        }
+
+        .hero-cta svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.25s ease;
+        }
+
+        .hero-cta:hover {
+            background-color: #f8fafc;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+        }
+
+        .hero-cta:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* ==========================================================================
+       Tentang Kami Section
+       ========================================================================== */
+        .about-section {
+            padding: 6.5rem 0;
+            background-color: var(--color-white);
+            position: relative;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            align-items: center;
+            gap: 4.5rem;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .about-tagline {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #d48b16;
+            margin-bottom: 0.85rem;
+        }
+
+        .about-title {
+            font-size: clamp(2.1rem, 3.8vw, 2.85rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+            color: var(--color-primary);
+            margin-bottom: 1.35rem;
+        }
+
+        .about-description {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: #4b5563;
+            margin-bottom: 2.25rem;
+            max-width: 520px;
+        }
+
+        .btn-about {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 0.85rem 1.85rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(21, 55, 74, 0.2);
+            transition: var(--transition-smooth);
+        }
+
+        .btn-about svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.25s ease;
+        }
+
+        .btn-about:hover {
+            background-color: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(21, 55, 74, 0.3);
+        }
+
+        .btn-about:hover svg {
+            transform: translateX(4px);
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 16px 36px -8px rgba(15, 30, 42, 0.12), 0 0 1px 1px rgba(0, 0, 0, 0.04);
+            background-color: #f1f5f9;
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .about-image-wrapper:hover .about-image {
+            transform: scale(1.03);
+        }
+
+        /* ==========================================================================
+       Unit Usaha Section
+       ========================================================================== */
+        .units-section {
+            padding: 6.5rem 0;
+            background-color: #f8fafc;
+        }
+
+        .units-header {
+            margin-bottom: 3.5rem;
+        }
+
+        .units-tagline {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #d48b16;
+            margin-bottom: 0.85rem;
+        }
+
+        .units-title {
+            font-size: clamp(2.1rem, 3.8vw, 2.75rem);
+            font-weight: 800;
+            line-height: 1.25;
+            letter-spacing: -0.025em;
+            color: var(--color-primary);
+        }
+
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.25rem;
+        }
+
+        .unit-card {
+            background-color: var(--color-white);
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition-smooth);
+            position: relative;
+            box-shadow: 0 4px 12px rgba(15, 30, 42, 0.03);
+        }
+
+        .unit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(15, 30, 42, 0.08);
+            border-color: #cbd5e1;
+        }
+
+        .unit-card-media {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            border-top-left-radius: 19px;
+            border-top-right-radius: 19px;
+            background-color: #f1f5f9;
+        }
+
+        .unit-card-img-wrap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .unit-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .unit-card:hover .unit-card-img {
+            transform: scale(1.04);
+        }
+
+        .unit-card-body {
+            padding: 1.75rem 1.75rem 1.5rem 1.75rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .unit-card-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.65rem;
+            letter-spacing: -0.015em;
+        }
+
+        .unit-card-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--color-text-muted);
+            margin-bottom: 1.75rem;
+            flex-grow: 1;
+        }
+
+        .unit-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.925rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            transition: var(--transition-smooth);
+            align-self: flex-start;
+        }
+
+        .unit-card-link svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.25s ease;
+        }
+
+        .unit-card-link:hover {
+            color: var(--color-primary-dark);
+        }
+
+        .unit-card-link:hover svg {
+            transform: translateX(5px);
+        }
+
+        /* ==========================================================================
+       CTA Banner Section
+       ========================================================================== */
+        .cta-section {
+            padding: 4.5rem 0 3rem 0;
+            background-color: var(--color-white);
+        }
+
+        .cta-container {
+            width: 100%;
+            max-width: 1420px;
+            margin: 0 auto;
+            padding: 0 clamp(1.5rem, 3.5vw, 3.5rem);
+        }
+
+        .cta-banner {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            background:
+                linear-gradient(to right,
+                    rgba(15, 35, 25, 0.72) 0%,
+                    rgba(15, 35, 25, 0.5) 55%,
+                    rgba(15, 35, 25, 0.3) 100%),
+                url('assets/sawah1.jpg') center/cover no-repeat;
+            padding: 2.25rem 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2.5rem;
+            box-shadow: 0 14px 32px -10px rgba(15, 35, 25, 0.18);
+        }
+
+        .cta-content {
+            max-width: 680px;
+            color: var(--color-white);
+        }
+
+        .cta-title {
+            font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+            font-weight: 800;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            color: var(--color-white);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .cta-subtitle {
+            font-size: clamp(1rem, 1.8vw, 1.15rem);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.92);
+            line-height: 1.6;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-cta-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background-color: var(--color-white);
+            color: var(--color-primary);
+            font-size: 1.05rem;
+            font-weight: 700;
+            padding: 1.05rem 2.4rem;
+            border-radius: 9999px;
+            white-space: nowrap;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+            transition: var(--transition-smooth);
+            flex-shrink: 0;
+        }
+
+        .btn-cta-contact svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.25s ease;
+        }
+
+        .btn-cta-contact:hover {
+            background-color: #f8fafc;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-cta-contact:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* ==========================================================================
+       Site Footer
+       ========================================================================== */
+        .site-footer {
+            background-color: var(--color-white);
+            padding: 5rem 0 2.5rem 0;
+            border-top: 1px solid #f1f5f9;
+            width: 100%;
+        }
+
+        .footer-container {
+            width: 100%;
+            max-width: 100%;
+            padding: 0 clamp(2rem, 5vw, 5.5rem);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2.2fr 1fr 1.2fr 1.5fr;
+            gap: clamp(2rem, 4vw, 4.5rem);
+            align-items: flex-start;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-logo {
+            height: 52px;
+            width: auto;
+            max-height: 52px;
+            object-fit: contain;
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-tagline-main {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--color-text-dark);
+            margin-bottom: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .footer-description {
+            font-size: 0.875rem;
+            line-height: 1.7;
+            color: var(--color-text-muted);
+            max-width: 440px;
+        }
+
+        .footer-col-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-primary);
+            margin-bottom: 1.35rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .footer-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            transition: var(--transition-smooth);
+            display: inline-block;
+        }
+
+        .footer-link:hover {
+            color: var(--color-primary);
+            transform: translateX(3px);
+        }
+
+        .footer-contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.875rem;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        .footer-contact-item svg {
+            width: 18px;
+            height: 18px;
+            color: var(--color-primary);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .footer-contact-item a {
+            color: inherit;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-contact-item a:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-bottom {
+            margin-top: 4.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.825rem;
+            color: #94a3b8;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-values {
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==========================================================================
+       Responsive Styles (Mobile & Tablet)
+       ========================================================================== */
+        @media (max-width: 992px) {
+            .navbar {
+                height: 70px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--color-white);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.5rem 2rem;
+                gap: 1.25rem;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+                transform: translateY(-10px);
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.3s ease-in-out;
+            }
+
+            .nav-menu.open {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .nav-link {
+                font-size: 1.05rem;
+                width: 100%;
+                display: block;
+            }
+
+            .nav-actions {
+                gap: 0.75rem;
+            }
+
+            .btn-contact {
+                padding: 0.55rem 1.25rem;
+                font-size: 0.85rem;
+            }
+
+            .hero-section {
+                min-height: 80vh;
+                padding: 3.5rem 0;
+                background:
+                    linear-gradient(to bottom,
+                        rgba(15, 30, 42, 0.82) 0%,
+                        rgba(15, 30, 42, 0.6) 55%,
+                        rgba(15, 30, 42, 0.3) 100%),
+                    url('assets/danauberatan.png') center/cover no-repeat;
+            }
+
+            .about-section {
+                padding: 4.5rem 0;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2.75rem;
+            }
+
+            .about-description {
+                max-width: 100%;
+            }
+
+            .units-section {
+                padding: 4.5rem 0;
+            }
+
+            .units-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .unit-card-media {
+                height: 220px;
+            }
+
+            .cta-banner {
+                padding: 2.25rem 2rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.75rem;
+            }
+
+            .btn-cta-contact {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2.75rem;
+            }
+
+            .footer-brand {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .brand-logo {
+                height: 42px;
+                max-height: 42px;
+            }
+
+            .btn-contact {
+                display: none;
+                /* Disembunyikan pada layar sangat kecil agar navbar tetap rapi */
+            }
+
+            .nav-menu .mobile-contact {
+                display: block;
+                width: 100%;
+                margin-top: 0.5rem;
+            }
+
+            .nav-menu .mobile-contact .btn-contact {
+                display: inline-flex;
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-section {
+                padding: 2.5rem 0;
+                min-height: 75vh;
+            }
+
+            .about-section {
+                padding: 3.5rem 0;
+            }
+
+            .about-image-wrapper {
+                border-radius: 16px;
+            }
+
+            .units-section {
+                padding: 3.5rem 0;
+            }
+
+            .units-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .unit-card-body {
+                padding: 1.85rem 1.5rem 1.5rem 1.5rem;
+            }
+
+            .unit-card-media {
+                height: 190px;
+            }
+
+            .cta-section {
+                padding: 3.5rem 0 2rem 0;
+            }
+
+            .cta-banner {
+                padding: 2.25rem 1.75rem;
+                border-radius: 20px;
+                background:
+                    linear-gradient(to bottom,
+                        rgba(15, 35, 25, 0.78) 0%,
+                        rgba(15, 35, 25, 0.6) 100%),
+                    url('assets/sawah1.jpg') center/cover no-repeat;
+            }
+
+            .footer-container {
+                padding: 0 1.5rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2.25rem;
+            }
+
+            .footer-brand {
+                grid-column: span 1;
+            }
+
+            .footer-bottom {
+                margin-top: 3rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==========================================================================
+       Header / Navbar Section
+       ========================================================================== -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar" aria-label="Navigasi Utama">
+
+                <!-- Logo Brand -->
+                <a href="#" class="navbar-brand" aria-label="Beranda PT Bintang Bali Bina Persada">
+                    <img src="assets/logo PT.jpg" alt="Logo PT Bintang Bali Bina Persada" class="brand-logo"
+                        width="1466" height="1172">
+                </a>
+
+                <!-- Daftar Menu Navigasi -->
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="#beranda" class="nav-link active">Beranda</a></li>
+                    <li class="nav-item"><a href="tentang-kami.html" class="nav-link">Tentang Kami</a></li>
+                    <li class="nav-item"><a href="#unit-usaha" class="nav-link">Unit Usaha</a></li>
+                    <li class="nav-item"><a href="#visi-misi" class="nav-link">Visi &amp; Misi</a></li>
+                    <li class="nav-item"><a href="#filosofi" class="nav-link">Filosofi</a></li>
+                    <li class="nav-item"><a href="#manifesto" class="nav-link">Manifesto</a></li>
+                    <li class="nav-item"><a href="#kontak" class="nav-link">Kontak</a></li>
+
+                    <!-- Tombol Hubungi Kami khusus di dalam dropdown mobile -->
+                    <li class="mobile-contact" style="display: none;">
+                        <a href="#kontak" class="btn-contact">Hubungi Kami</a>
+                    </li>
+                </ul>
+
+                <!-- Action Buttons (Search & Hubungi Kami) -->
+                <div class="nav-actions">
+                    <!-- Tombol Pencarian -->
+                    <button class="search-btn" aria-label="Buka Pencarian" title="Cari">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+
+                    <!-- Tombol Hubungi Kami -->
+                    <a href="#kontak" class="btn-contact">Hubungi Kami</a>
+
+                    <!-- Hamburger Menu Toggle (Mobile) -->
+                    <button class="menu-toggle" id="menuToggle" aria-label="Buka Menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+       Hero Section
+       ========================================================================== -->
+    <main>
+        <section class="hero-section" id="beranda">
+            <div class="container">
+                <div class="hero-content">
+                    <!-- Tagline Perusahaan -->
+                    <p class="hero-tagline">PT BINTANG BALI BINA PERSADA</p>
+
+                    <!-- Judul Utama -->
+                    <h1 class="hero-title">
+                        Berkarya untuk<br>
+                        Masa Depan Bali
+                    </h1>
+
+                    <!-- Subjudul / Deskripsi Singkat -->
+                    <p class="hero-subtitle">
+                        Inovasi, Kolaborasi, dan Dampak Nyata untuk Negeri
+                    </p>
+
+                    <!-- Tombol Call To Action (CTA) -->
+                    <a href="#pelajari" class="hero-cta">
+                        Pelajari Lebih Lanjut
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           Tentang Kami Section
+           ========================================================================== -->
+        <section class="about-section" id="tentang-kami">
+            <div class="container">
+                <div class="about-grid">
+                    <!-- Konten Teks -->
+                    <div class="about-content">
+                        <span class="about-tagline">TENTANG KAMI</span>
+                        <h2 class="about-title">
+                            PT Bintang Bali<br>
+                            Bina Persada
+                        </h2>
+                        <p class="about-description">
+                            Sebagai perusahaan yang berakar di Bali, kami berkomitmen untuk menghadirkan solusi inovatif
+                            melalui empat unit usaha unggulan di bidang teknologi, penerbitan, hospitality, dan
+                            pertanian
+                        </p>
+                        <a href="tentang-kami.html" class="btn-about">
+                            <span>Tentang Kami</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Gambar Gedung Kantor -->
+                    <div class="about-image-wrapper">
+                        <img src="assets/gedungPT1.jpg"
+                            alt="Kantor Pusat & Innovation Center PT Bintang Bali Bina Persada" class="about-image"
+                            width="1408" height="768" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           Unit Usaha Section
+           ========================================================================== -->
+        <section class="units-section" id="unit-usaha">
+            <div class="container">
+                <div class="units-header">
+                    <span class="units-tagline">UNIT USAHA</span>
+                    <h2 class="units-title">Empat Pilar untuk Kemajuan Bersama</h2>
+                </div>
+
+                <div class="units-grid">
+                    <!-- Unit 1: Bintang Bali Lab -->
+                    <article class="unit-card">
+                        <div class="unit-card-media">
+                            <div class="unit-card-img-wrap">
+                                <img src="assets/bintangbalilab.jpeg"
+                                    alt="Bintang Bali Lab - Inovasi Teknologi Pertanian Modern" class="unit-card-img"
+                                    width="694" height="288" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="unit-card-body">
+                            <h3 class="unit-card-title">Bintang Bali Lab</h3>
+                            <p class="unit-card-desc">Inovasi teknologi untuk masa depan yang baik.</p>
+                            <a href="#unit-lab" class="unit-card-link">
+                                <span>Selengkapnya</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Unit 2: Bintang Bali Press -->
+                    <article class="unit-card">
+                        <div class="unit-card-media">
+                            <div class="unit-card-img-wrap">
+                                <img src="assets/bintangbalipress.jpg" alt="Bintang Bali Press - Penerbitan dan Edukasi"
+                                    class="unit-card-img" width="1600" height="1067" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="unit-card-body">
+                            <h3 class="unit-card-title">Bintang Bali Press</h3>
+                            <p class="unit-card-desc">Penerbitan dan edukasi untuk generasi mendatang.</p>
+                            <a href="#unit-press" class="unit-card-link">
+                                <span>Selengkapnya</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Unit 3: Bintang Bali Living Collection -->
+                    <article class="unit-card">
+                        <div class="unit-card-media">
+                            <div class="unit-card-img-wrap">
+                                <img src="assets/bintangbaliliving.jpg"
+                                    alt="Bintang Bali Living Collection - Hospitality & Villa" class="unit-card-img"
+                                    width="1024" height="683" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="unit-card-body">
+                            <h3 class="unit-card-title">Bintang Bali Living<br>Collection</h3>
+                            <p class="unit-card-desc">Pengalaman hidup terbaik di Bali.</p>
+                            <a href="#unit-living" class="unit-card-link">
+                                <span>Selengkapnya</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Unit 4: Bintang Bali Agro -->
+                    <article class="unit-card">
+                        <div class="unit-card-media">
+                            <div class="unit-card-img-wrap">
+                                <img src="assets/bintangbaliagro.jpg"
+                                    alt="Bintang Bali Agro - Pertanian Berkelanjutan Hidroponik" class="unit-card-img"
+                                    width="1600" height="1067" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="unit-card-body">
+                            <h3 class="unit-card-title">Bintang Bali Agro</h3>
+                            <p class="unit-card-desc">Pertanian berkelanjutan untuk kehidupan yang lebih baik.</p>
+                            <a href="#unit-agro" class="unit-card-link">
+                                <span>Selengkapnya</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           CTA Banner Section
+           ========================================================================== -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-banner">
+                    <div class="cta-content">
+                        <h2 class="cta-title">Bersama B3P, Menuju Bali yang Lebih Baik</h2>
+                        <p class="cta-subtitle">Kolaborasi dan inovasi untuk masa depan yang berkelanjutan.</p>
+                    </div>
+                    <a href="#kontak" class="btn-cta-contact">
+                        <span>Hubungi Kami</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================================================
+       Site Footer
+       ========================================================================== -->
+    <footer class="site-footer" id="kontak">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Kolom 1: Profil Perusahaan -->
+                <div class="footer-brand">
+                    <img src="assets/logo PT.jpg" alt="Logo PT Bintang Bali Bina Persada" class="footer-logo"
+                        width="1466" height="1172" loading="lazy">
+                    <p class="footer-tagline-main">Enriching Education, Empowering Expertise, Elevating Experience.</p>
+                    <p class="footer-description">
+                        Menghubungkan dunia pendidikan, penelitian, teknologi, industri, penerbitan, agrikultur, serta
+                        hospitality dalam satu ekosistem inovasi yang berkelanjutan.
+                    </p>
+                </div>
+
+                <!-- Kolom 2: Navigasi -->
+                <div class="footer-col">
+                    <h3 class="footer-col-title">NAVIGASI</h3>
+                    <ul class="footer-links">
+                        <li><a href="#beranda" class="footer-link">BERANDA</a></li>
+                        <li><a href="tentang-kami.html" class="footer-link">TENTANG KAMI</a></li>
+                        <li><a href="#unit-usaha" class="footer-link">UNIT USAHA</a></li>
+                        <li><a href="#visi-misi" class="footer-link">VISI MISI</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolom 3: Eksplorasi -->
+                <div class="footer-col">
+                    <h3 class="footer-col-title">EKSPLORASI</h3>
+                    <ul class="footer-links">
+                        <li><a href="#filosofi" class="footer-link">FILOSOFI PERUSAHAAN</a></li>
+                        <li><a href="#manifesto" class="footer-link">THE B3P MANIFESTO</a></li>
+                        <li><a href="#kontak" class="footer-link">KONTAK</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolom 4: Kantor Pusat -->
+                <div class="footer-col">
+                    <h3 class="footer-col-title">KANTOR PUSAT</h3>
+                    <ul class="footer-contact-list">
+                        <li class="footer-contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>Denpasar &amp; Badung, Bali Indonesia</span>
+                        </li>
+                        <li class="footer-contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                            </svg>
+                            <a href="mailto:info@bintangbalibp.com">info@bintangbalibp.com</a>
+                        </li>
+                        <li class="footer-contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                            <a href="tel:+623618900123">+62 361 8900 123</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom Bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2024 PT Bintang Bali Bina Persada. All rights reserved.</p>
+                <p class="footer-values">Knowledge &bull; Innovation &bull; Product &bull; Experience &bull; Impact</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+       JavaScript Interaktif (Toggle Mobile Menu & Responsive Handling)
+       ========================================================================== -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', () => {
+                const isOpen = navMenu.classList.toggle('open');
+                menuToggle.classList.toggle('active');
+                menuToggle.setAttribute('aria-expanded', isOpen);
+            });
+
+            // Menutup menu saat link diklik pada mode mobile
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('open');
+                    menuToggle.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', false);
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>
